@@ -1,0 +1,35 @@
+name: Update local events
+
+on:
+  schedule:
+    - cron: "0 6 * * *"   # once a day at 06:00 UTC - adjust as you like
+  workflow_dispatch: {}     # lets you trigger it manually from the Actions tab
+
+permissions:
+  contents: write
+
+jobs:
+  fetch-and-publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install feedparser rapidfuzz requests
+
+      - name: Fetch and dedupe events
+        env:
+          FB_PAGE_ACCESS_TOKEN: ${{ secrets.FB_PAGE_ACCESS_TOKEN }}
+        run: python scripts/fetch_events.py
+
+      - name: Commit updated data
+        run: |
+          git config user.name "events-bot"
+          git config user.email "actions@github.com"
+          git add data/events.json
+          git diff --staged --quiet || git commit -m "Update events data"
+          git push

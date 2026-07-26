@@ -1,0 +1,49 @@
+{
+  "generated_at": "2026-07-26T09:00:00+00:00",
+  "count": 4,
+  "events": [
+    {
+      "title": "ARTmania Festival",
+      "summary": "ARTmania returns to Piața Mare for a special free-access edition, July 24–25.",
+      "link": "https://zilesinopti.ro/evenimente-sibiu/",
+      "date": "2026-07-24T18:00:00+00:00",
+      "sources": ["Zile și Nopți", "Sibiu City App"],
+      "source_links": {
+        "Zile și Nopți": "https://zilesinopti.ro/evenimente-sibiu/",
+        "Sibiu City App": "https://sibiucityapp.ro/en/events"
+      }
+    },
+    {
+      "title": "Sibiu Get Muddy – Race for Hope",
+      "summary": "Charity obstacle race along the Trinkbach stream, organised by Asociația SUS Inima.",
+      "link": "https://www.sibiu.ro/",
+      "date": "2026-07-25T10:00:00+00:00",
+      "sources": ["Primăria Sibiu", "Zile și Nopți"],
+      "source_links": {
+        "Primăria Sibiu": "https://www.sibiu.ro/",
+        "Zile și Nopți": "https://zilesinopti.ro/evenimente-sibiu/"
+      }
+    },
+    {
+      "title": "Expoziția „70 de ani de cercetare arheologică în cetatea dacică de la Tilișca”",
+      "summary": "Archaeology exhibition at Muzeul de Istorie, Casa Altemberger.",
+      "link": "https://turism.sibiu.ro/ro/ce_se_intampla",
+      "date": "2026-07-22T10:00:00+00:00",
+      "sources": ["Turism Sibiu", "Cultura Sibiu"],
+      "source_links": {
+        "Turism Sibiu": "https://turism.sibiu.ro/ro/ce_se_intampla",
+        "Cultura Sibiu": "https://cultura.sibiu.ro/evenimente/evenimente"
+      }
+    },
+    {
+      "title": "Expoziția: Farmecul Orientului în inima Transilvaniei",
+      "summary": "Carpets from the Brukenthal National Museum collection, on display at Palatul Brukenthal.",
+      "link": "https://turism.sibiu.ro/ro/ce_se_intampla",
+      "date": "2026-07-22T10:00:00+00:00",
+      "sources": ["Turism Sibiu"],
+      "source_links": {
+        "Turism Sibiu": "https://turism.sibiu.ro/ro/ce_se_intampla"
+      }
+    }
+  ]
+}

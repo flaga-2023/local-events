@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ce se întâmplă în Sibiu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --oxblood:#6B2737;
+    --oxblood-dark:#4E1C29;
+    --parchment:#EDE6D6;
+    --parchment-dim:#E1D8C2;
+    --forest:#2F4538;
+    --ochre:#C9A15D;
+    --ink:#22201D;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--parchment);
+    color:var(--ink);
+    font-family:'Source Sans 3', sans-serif;
+    background-image:
+      radial-gradient(circle at 15% 8%, rgba(107,39,55,0.05) 0%, transparent 40%),
+      radial-gradient(circle at 90% 85%, rgba(47,69,56,0.06) 0%, transparent 45%);
+  }
+  header{
+    padding:56px 24px 40px;
+    max-width:880px;
+    margin:0 auto;
+    border-bottom:1px solid rgba(34,32,29,0.12);
+  }
+  .eyebrow{
+    font-size:12px;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:var(--oxblood);
+    font-weight:600;
+    margin-bottom:14px;
+  }
+  h1{
+    font-family:'Fraunces', serif;
+    font-weight:700;
+    font-size:clamp(2.2rem, 5vw, 3.4rem);
+    line-height:1.05;
+    margin:0 0 14px;
+    color:var(--ink);
+  }
+  h1 em{ color:var(--oxblood); font-style:normal; }
+  .sub{
+    font-size:16px;
+    color:#54504a;
+    max-width:52ch;
+    line-height:1.5;
+  }
+  .meta-row{
+    max-width:880px;
+    margin:18px auto 0;
+    padding:0 24px;
+    display:flex;
+    justify-content:space-between;
+    font-size:13px;
+    color:#7a756b;
+  }
+  main{ max-width:880px; margin:0 auto; padding:36px 24px 80px; }
+  .day-group{ margin-bottom:44px; }
+  .day-label{
+    font-family:'Fraunces', serif;
+    font-size:15px;
+    font-weight:600;
+    color:var(--forest);
+    text-transform:uppercase;
+    letter-spacing:.08em;
+    margin-bottom:16px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+  }
+  .day-label::after{
+    content:"";
+    flex:1;
+    height:1px;
+    background:rgba(47,69,56,0.25);
+  }
+  .card{
+    background:#fff;
+    border:1px solid rgba(34,32,29,0.10);
+    border-left:4px solid var(--oxblood);
+    border-radius:6px;
+    padding:20px 22px;
+    margin-bottom:14px;
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .card:hover{
+    transform:translateY(-2px);
+    box-shadow:0 8px 24px rgba(34,32,29,0.09);
+  }
+  .card-title{
+    font-family:'Fraunces', serif;
+    font-size:19px;
+    font-weight:600;
+    margin:0 0 6px;
+  }
+  .card-title a{ color:var(--ink); text-decoration:none; }
+  .card-title a:hover{ color:var(--oxblood); }
+  .card-summary{
+    font-size:14.5px;
+    color:#5c5850;
+    line-height:1.5;
+    margin:0 0 14px;
+  }
+  .seals{ display:flex; align-items:center; }
+  .seal{
+    width:26px; height:26px;
+    border-radius:50%;
+    background:var(--ochre);
+    color:#fff;
+    font-size:10.5px;
+    font-weight:600;
+    display:flex; align-items:center; justify-content:center;
+    border:2px solid var(--parchment);
+    margin-left:-8px;
+    position:relative;
+    box-shadow:0 1px 2px rgba(0,0,0,0.15);
+  }
+  .seal:first-child{ margin-left:0; background:var(--oxblood); }
+  .seal:nth-child(2){ background:var(--forest); }
+  .source-names{
+    font-size:12px;
+    color:#8a8579;
+    margin-left:10px;
+  }
+  .merged-tag{
+    display:inline-block;
+    font-size:11px;
+    font-weight:600;
+    color:var(--forest);
+    background:rgba(47,69,56,0.08);
+    padding:3px 8px;
+    border-radius:10px;
+    margin-left:8px;
+  }
+  .empty-state{
+    text-align:center;
+    padding:60px 20px;
+    color:#8a8579;
+    font-family:'Fraunces', serif;
+    font-size:18px;
+  }
+  footer{
+    max-width:880px;
+    margin:0 auto;
+    padding:0 24px 60px;
+    font-size:12.5px;
+    color:#9c9689;
+    line-height:1.6;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="eyebrow">Sibiu · Local Events</div>
+  <h1>What's happening<br><em>in the old town</em></h1>
+  <div class="sub">Merged from the city's tourism and culture sites, local event aggregators, and public Facebook Pages — duplicates collapsed into one listing.</div>
+</header>
+
+<div class="meta-row">
+  <span id="generated-at">Loading…</span>
+  <span id="event-count"></span>
+</div>
+
+<main id="events-root">
+  <div class="empty-state">Loading events…</div>
+</main>
+
+<footer>
+  Sources are merged automatically when titles and dates match closely enough to be the same event.
+  The overlapping circles on each card mark how many sites reported it — hover to see which ones.
+  Data refreshes daily via a scheduled job; run it manually any time from the repo's Actions tab.
+</footer>
+
+<script>
+async function loadEvents(){
+  const root = document.getElementById('events-root');
+  try{
+    const res = await fetch('./data/events.json', {cache:'no-store'});
+    const data = await res.json();
+
+    document.getElementById('generated-at').textContent =
+      'Updated ' + new Date(data.generated_at).toLocaleString('en-GB', {dateStyle:'medium', timeStyle:'short'});
+    document.getElementById('event-count').textContent = data.count + ' events';
+
+    if(!data.events || data.events.length === 0){
+      root.innerHTML = '<div class="empty-state">No events found yet. Check back after the next scheduled run.</div>';
+      return;
+    }
+
+    const groups = {};
+    const undated = [];
+    data.events.forEach(ev => {
+      if(!ev.date){ undated.push(ev); return; }
+      const day = new Date(ev.date).toLocaleDateString('en-GB', {weekday:'long', day:'numeric', month:'long'});
+      (groups[day] = groups[day] || []).push(ev);
+    });
+
+    let html = '';
+    for(const [day, events] of Object.entries(groups)){
+      html += `<div class="day-group"><div class="day-label">${day}</div>`;
+      events.forEach(ev => html += renderCard(ev));
+      html += `</div>`;
+    }
+    if(undated.length){
+      html += `<div class="day-group"><div class="day-label">Ongoing / date unclear</div>`;
+      undated.forEach(ev => html += renderCard(ev));
+      html += `</div>`;
+    }
+    root.innerHTML = html;
+
+  }catch(err){
+    root.innerHTML = '<div class="empty-state">Couldn\'t load events.json. Make sure the fetch script has run at least once.</div>';
+    console.error(err);
+  }
+}
+
+function renderCard(ev){
+  const seals = ev.sources.slice(0,4).map(s =>
+    `<span class="seal" title="${s}">${s.trim()[0]}</span>`
+  ).join('');
+  const mergedTag = ev.sources.length > 1
+    ? `<span class="merged-tag">${ev.sources.length} sources</span>` : '';
+  const names = ev.sources.join(' · ');
+
+  return `
+    <div class="card">
+      <h3 class="card-title"><a href="${ev.link}" target="_blank" rel="noopener">${ev.title}</a></h3>
+      ${ev.summary ? `<p class="card-summary">${ev.summary}</p>` : ''}
+      <div class="seals">
+        ${seals}
+        <span class="source-names">${names}</span>
+        ${mergedTag}
+      </div>
+    </div>
+  `;
+}
+
+loadEvents();
+</script>
+
+</body>
+</html>

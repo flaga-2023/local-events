@@ -1,0 +1,33 @@
+{
+  "rss_feeds": [
+    {
+      "name": "Sibiu City App",
+      "url": "https://sibiucityapp.ro/en/events/feed",
+      "note": "Replace with the real feed URL once confirmed - many event sites hide RSS at /feed or /rss"
+    },
+    {
+      "name": "Zile și Nopți Sibiu",
+      "url": "https://zilesinopti.ro/evenimente-sibiu/feed/",
+      "note": "WordPress sites usually expose /feed/ automatically"
+    },
+    {
+      "name": "Cultura Sibiu",
+      "url": "https://cultura.sibiu.ro/evenimente/feed",
+      "note": "Confirm actual feed path - fallback to RSS-Bridge if none exists"
+    }
+  ],
+  "facebook_pages": [
+    {
+      "name": "Vizit Sibiu",
+      "page_id": "REPLACE_WITH_PAGE_ID_OR_USERNAME"
+    },
+    {
+      "name": "Sibiu, orasul meu",
+      "page_id": "REPLACE_WITH_PAGE_ID_OR_USERNAME"
+    }
+  ],
+  "dedupe": {
+    "title_similarity_threshold": 82,
+    "date_window_days": 1
+  }
+}
